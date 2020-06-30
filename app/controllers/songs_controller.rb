@@ -46,7 +46,6 @@ class SongsController < ApplicationController
     @song = Song.find_by_slug(params[:slug])
     if !params[:song].keys.include?
     end
-    flash[:message] = "Successfully updated song."
     redirect to ("/songs/#{@song.slug}")
   end
 
@@ -57,6 +56,7 @@ class SongsController < ApplicationController
     @artist = Artist.find_or_create_by(name: params["artist"]["name"])
     @song.update(artist: @artist)
     #needs to find or create an artist based on params
+    flash[:message] = "Successfully updated song."
     redirect "/songs/#{@song.slug}"
   end
 
