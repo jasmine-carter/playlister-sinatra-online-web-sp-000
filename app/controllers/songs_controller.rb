@@ -31,7 +31,7 @@ class SongsController < ApplicationController
   get '/songs/:slug' do
     #binding.pry
     @song = Song.find_by_slug(params[:slug])
-    binding.pry
+    #binding.pry
     erb :'/songs/show'
   end
 
@@ -51,7 +51,7 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug' do
-    binding.pry
+    #binding.pry
     #{}"you made it to the patch path!"
     @song = Song.find_by_slug(params[:slug])
     @artist = Artist.find_or_create_by(name: params["artist"]["name"])
