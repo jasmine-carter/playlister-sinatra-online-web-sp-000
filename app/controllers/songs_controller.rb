@@ -54,7 +54,7 @@ class SongsController < ApplicationController
     binding.pry
     #{}"you made it to the patch path!"
     @song = Song.find_by_slug(params[:slug])
-    @artist = Artist.find_or_create_by(name: params["song"]["artist"])
+    @artist = Artist.find_or_create_by(name: params["artist"]["name"])
     @song.update(artist: @artist)
     #needs to find or create an artist based on params
     redirect "/songs/#{@song.slug}"
