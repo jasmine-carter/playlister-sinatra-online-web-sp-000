@@ -43,7 +43,7 @@ class SongsController < ApplicationController
   post '/songs/:slug' do
     #binding.pry
     @song = Song.find_by_slug(params[:slug])
-    #binding.pry
+    binding.pry
     if !params[:song].keys.include?
     end
     flash[:message] = "Successfully updated song."
