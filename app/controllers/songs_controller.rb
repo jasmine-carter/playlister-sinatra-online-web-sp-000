@@ -50,7 +50,7 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug' do
-    #binding.pry
+    binding.pry
     #{}"you made it to the patch path!"
     @song = Songs.find(params[:slug])
     @owner.update(params["artist"])
