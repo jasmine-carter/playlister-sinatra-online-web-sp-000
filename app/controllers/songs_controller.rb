@@ -54,6 +54,7 @@ class SongsController < ApplicationController
     #binding.pry
     #{}"you made it to the patch path!"
     @song = Songs.find(params[:slug])
+    @owner.update(params["artist"])
     redirect "songs/#{@song.slug}"
   end
 
