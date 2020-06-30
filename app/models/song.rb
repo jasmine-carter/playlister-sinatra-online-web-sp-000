@@ -9,8 +9,18 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    slug = slug.split("-").join(" ").titlecase
-    song = Song.find_by(name: slug)
+    no_cap = ["the", "with"]
+
+    #slug = slug.split("-").join(" ").titlecase
+    slug = slug.split("-").join(" ")
+    deslug = slug.split(" ").map { |word|
+      if no_cap.include?(word)
+        word
+      else
+        word.capitalize
+      end
+    }.join(" ")
+    song = Song.find_by(name: deslug)
     song
   end
 
