@@ -8,12 +8,11 @@
 
   <label for="artist_name">Artist Name</label>
   <input type="text" name="artist[name]" value="<%= @song.artist.name %>" id="artist_name">
-  
-<label> Edit the Genres: </label>
-  <% Genre.all.each do |genre| %>
-  <label><%= genre.name %> </label>
-  <input type="checkbox" name="song[genre][]" id="<%egenre.name%>" value="<%genre.name %>" <=% 'checked' if @song.genres.include?(genre) %>>
-<% end %>
 
-<input type="submit" value="Save">
-</form>
+  <% Genre.all.each do |genre| %>
+      <label><%= genre.name %></label>
+      <input type="checkbox" name="genres[]" value="<%= genre.id %>" id="<%= genre.name %>" <%='checked' if @song.genres.include?(genre) %>>
+    <% end %>
+
+    <input type="submit" value="Save">
+  </form>
