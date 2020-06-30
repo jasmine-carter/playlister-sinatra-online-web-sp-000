@@ -5,6 +5,7 @@ class Artist < ActiveRecord::Base
   #seems like slug and find_by_slug methods could be broken into a module?
   def slug
     #it strips out special characters, and replaces all spaces with -
+    binding.pry
     name.split.join("-").downcase
   end
 
