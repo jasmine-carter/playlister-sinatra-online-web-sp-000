@@ -1,4 +1,7 @@
 <h1>Edit <%= @song.name %></h1>
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
 
 <form action="/songs/<%= @song.slug %>" method="POST">
   <input type="hidden" name="_method" value="patch">
